@@ -10,32 +10,40 @@ import { TbFileReport } from "react-icons/tb";
 import { IoSettings } from "react-icons/io5";
 import { BiLogOut } from "react-icons/bi";
 import { TbHelpHexagonFilled } from "react-icons/tb";
+import { Link } from "react-router-dom";
 
 const menuItems = [
-  { icons: <RiDashboard2Line size={30} />, label: "Dashboard" },
+  { icons: <RiDashboard2Line size={30} />, label: "Dashboard",
+  path: "/" },
   {
     icons: <LuLogs size={30} />,
     label: "User Logs",
+    path: "/userlogs"
   },
   {
     icons: <TbTransactionPound size={30} />,
     label: "Transactions",
+    path: "/transactions"
   },
   {
     icons: <LuTicketsPlane size={30} />,
     label: "Tickets",
+    path: "/tickets"
   },
   {
     icons: <TbFileReport size={30} />,
     label: "Reports",
+    path: "/reports"
   },
   {
     icons: <IoSettings size={30} />,
     label: "Settings",
+    path: "/settings"
   },
   {
     icons: <BiLogOut size={30} />,
     label: "Logout",
+    path: "/logout"
   },
 ];
 
@@ -51,7 +59,7 @@ export default function NavBar() {
         {/* header */}
         <div className=" px-3 py-2 h-20 flex justify-between items-center ">
           <MdLogoDev
-            size={40}
+            size={50}
             className={`text-white ${open ? "block" : "hidden"}`}
           />
 
@@ -70,8 +78,10 @@ export default function NavBar() {
             return (
               <li
                 key={index}
-                className="px-3 py-2  hover:bg-emerald-800 rounded-md duration-300 cursor-pointer text-black flex gap-2 items-center my-3 relative group"
+                className="my-3"
               >
+                 <Link to={item.path} className="flex items-center gap-2 px-3 py-2 hover:bg-emerald-800 rounded-md duration-300 cursor-pointer text-white">
+               
                 <div>{item.icons}</div>
                 <p
                   className={`${
@@ -81,26 +91,32 @@ export default function NavBar() {
                   {item.label}
                 </p>
                 {!open && (
-                  <p className="absolute left-16 shadow-md rounded-md w-0 p-0 bg-gray-700 text-white text-sm px-2 py-1 duration-300 overflow-hidden group-hover:w-auto opacity-0 group-hover:p-2 group-hover:opacity-200">
+                  <p className="absolute left-16 shadow-md rounded-md w-0 p-0 border-md 0 text-white text-sm px-2 py-1 duration-300 overflow-hidden group-hover:w-auto opacity-0 group-hover:p-2 group-hover:opacity-200">
                     {item.label}
                   </p>
                 )}
+               </Link>
               </li>
             );
           })}
         </ul>
-        <div className="px-3 py-2 hover:bg-orange-150 rounded-md duration-300 cursor-pointer text-white flex gap-2 items-center">
+        <div className="px-3 py-2  hover:bg-emerald-800 rounded-md duration-300 cursor-pointer text-white flex gap-2 items-center my-3 relative group">
           <div>
             {" "}
             <TbHelpHexagonFilled size={30} />{" "}
           </div>
           <p
-            className={`${
-              !open && "w-0 translate-x-24"
-            } duration-500 overflow-hidden`}
-          >
-            Help
-          </p>
+                  className={`${
+                    !open ? "width-0 translate-x-4" : "block"
+                  } duration-500 overflow-hidden`}
+                >
+                 Help
+                </p>
+                {!open && (
+                  <p className="absolute left-16 shadow-md rounded-md w-0 p-0 border-md 0 text-white text-sm px-2 py-1 duration-300 overflow-hidden group-hover:w-auto opacity-0 group-hover:p-2 group-hover:opacity-200">
+                    Help
+                  </p>
+                )}
         </div>
       </nav>
     </>

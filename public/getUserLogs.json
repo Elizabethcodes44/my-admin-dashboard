@@ -1,0 +1,29 @@
+{
+    "Success": true,
+    "data": [
+    {
+    "id": 117,
+    "user_id": "4b881cd2-3a76-4aec-bc25-27a0817ea079",
+    "log_type": "signup",
+    "log_description": "User initiated Signup, Awaiting OTP Approval",
+    "log_date": "2025-02-08T10:31:35.483Z",
+    "metadata": {
+    "ip": "::1",
+    "timestamp": "2025-02-08T02:31:28.287Z",
+    "userAgent": "Expo/1017655 CFNetwork/1568.200.51 Darwin/24.1.0"
+    }
+    },
+    {
+        "id": 118,
+        "user_id": "4b881cd2-3a76-4aec-bc25-27a0817ea080",
+        "log_type": "signup",
+        "log_description": "User initiated Signup, Awaiting OTP Approval",
+        "log_date": "2025-02-08T10:31:35.483Z",
+        "metadata": {
+        "ip": "::1",
+        "timestamp": "2025-02-08T02:31:28.287Z",
+        "userAgent": "Expo/1017655 CFNetwork/1568.200.51 Darwin/24.1.0"
+        }
+        }
+]
+}
