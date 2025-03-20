@@ -1,0 +1,56 @@
+{
+  "success": true,
+  "data": [
+    {
+      "id": 21,
+      "user_id": "4b881cd2-3a76-4aec-bc25-27a0817ea079",
+      "transaction_type": "withdrawal",
+      "asset": "BTC",
+      "amount": "0.00058000",
+      "transaction_date": "2025-02-09T02:36:17.180Z",
+      "to_address": "33Xf8MSBYY6tc66hPGJUj4ve8M8SMdX92x",
+      "status": "pending",
+      "tx_id": "d9105c64-e2b0-49a3-9c06-21c050f7ee86",
+      "internal_ref_id": "19009787"
+    },
+
+    {
+      "id": 22,
+      "user_id": "4b881cd2-3a76-4aec-bc25-27a0817ea090",
+      "transaction_type": "withdrawal",
+      "asset": "BTC",
+      "amount": "0.00058000",
+      "transaction_date": "2025-02-09T02:36:17.180Z",
+      "to_address": "33Xf8MSBYY6tc66hPGJUj4ve8M8SMdX92x",
+      "status": "pending",
+      "tx_id": "d9105c64-e2b0-49a3-9c06-21c050f7ee86",
+      "internal_ref_id": "19009787"
+    },
+
+    {
+      "id": 23,
+      "user_id": "4b881cd2-3a76-4aec-bc25-27a0817ea090",
+      "transaction_type": "withdrawal",
+      "asset": "BTC",
+      "amount": "0.00058000",
+      "transaction_date": "2025-02-09T02:36:17.180Z",
+      "to_address": "33Xf8MSBYY6tc66hPGJUj4ve8M8SMdX92x",
+      "status": "pending",
+      "tx_id": "d9105c64-e2b0-49a3-9c06-21c050f7ee86",
+      "internal_ref_id": "19009787"
+    },
+
+    {
+      "id": 24,
+      "user_id": "4b881cd2-3a76-4aec-bc25-27a0817ea090",
+      "transaction_type": "deposit",
+      "asset": "BTC",
+      "amount": "0.00058000",
+      "transaction_date": "2025-02-09T02:36:17.180Z",
+      "to_address": "33Xf8MSBYY6tc66hPGJUj4ve8M8SMdX92x",
+      "status": "pending",
+      "tx_id": "d9105c64-e2b0-49a3-9c06-21c050f7ee86",
+      "internal_ref_id": "19009787"
+    }
+  ]
+}

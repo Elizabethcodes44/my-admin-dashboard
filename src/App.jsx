@@ -20,7 +20,7 @@ function App() {
     <Router>
     <div className='flex'>
     <NavBar/>
-    <div className="flex-1 p-6 bg-gray-100 min-h-screen">
+    <div className="flex-1 p-6  min-h-screen bg-amber-200">
       <Routes>
         
         <Route path = "/" element={<Dashboard/>}/>
