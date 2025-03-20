@@ -11,6 +11,7 @@ import { IoSettings } from "react-icons/io5";
 import { BiLogOut } from "react-icons/bi";
 import { TbHelpHexagonFilled } from "react-icons/tb";
 import { Link } from "react-router-dom";
+import { useTheme } from "./theme";
 
 const menuItems = [
   { icons: <RiDashboard2Line size={30} />, label: "Dashboard",
@@ -49,12 +50,14 @@ const menuItems = [
 
 export default function NavBar() {
   const [open, setOpen] = useState(true);
+  const { theme } = useTheme();
   return (
     <>
       <nav
         className={`shadow-md h-screen ${
           open ? "w-60" : "w-16"
-        } duration-500 bg-teal-950 p-2 flex flex-col `}
+        }  ${
+          theme === "light" ? "bg-teal-950 text-white" : "bg-black text-white"} duration-500  p-2 flex flex-col `}
       >
         {/* header */}
         <div className=" px-3 py-2 h-20 flex justify-between items-center ">
