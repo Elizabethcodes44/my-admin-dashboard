@@ -70,8 +70,8 @@ export default function Transactions() {
     <div className="p-6">
         <h2 className="text-2xl font-semibold mb-4">User Transactions</h2>
 
-        <div className="grid md:grid-cols-3 gap-6">
-            <div>
+        <div className="grid shadow-lg rounded-md md:grid-cols-3 gap-6">
+            <div className="px-4 py-2">
                 <h3>Transaction Details</h3>
                 <input type="text" value={userId}
                 onChange={(e) => setUserId(e.target.value)}
