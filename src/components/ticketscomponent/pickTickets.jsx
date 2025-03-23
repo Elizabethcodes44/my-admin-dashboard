@@ -16,7 +16,7 @@ export default function PickTickets() {
         setMessage("");
         fetch("/admin/pickTicket.json", {
             method: "POST",
-            headers: {"Content-Type": "applicaion/json"},
+            headers: {"Content-Type": "application/json"},
             body: JSON.stringify ({ticket_id: ticketId}),
         })
         .then((res) => res.json())
