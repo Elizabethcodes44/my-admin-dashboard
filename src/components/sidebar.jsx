@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 //icons
 import { GiHamburgerMenu } from "react-icons/gi";
 import { MdLogoDev } from "react-icons/md";
@@ -29,7 +29,11 @@ const menuItems = [
   {
     icons: <LuTicketsPlane size={30} />,
     label: "Tickets",
-    path: "/getTickets"
+    submenu: [
+      { label: "Pick Tickets", path: "/admin/pickTickets" },
+      { label: "Close Tickets", path: "/admin/closeTickets" },
+      { label: "Get Tickets", path: "/getTickets" },
+    ]
   },
   {
     icons: <TbFileReport size={30} />,
@@ -51,6 +55,9 @@ const menuItems = [
 export default function NavBar({open, setOpen}) {
  
   const { theme } = useTheme();
+  
+  
+
   return (
     <>
       <nav
@@ -77,32 +84,53 @@ export default function NavBar({open, setOpen}) {
           </div>
         </div>
         <ul className="flex-1">
-          {menuItems.map((item, index) => {
-            return (
+          {menuItems.map((item, index) => (
               <li
                 key={index}
-                className="my-3"
+                className="my-3 relative group"
               >
+                {item.submenu ? (
+                  <div className="relative">
+                    <div className="flex items-center gap-2 px-3 py-2 hover:bg-emerald-800 rounded-md duration-300 cursor-pointer text-white"  >
+
+                      {item.icons}
+                      <p className={`${!open ? "width-0 translate-x-4" : "block"} duration-500 overflow-hidden`}>{item.label}</p>
+                      {!open && (
+          <p className="absolute left-16 shadow-md rounded-md w-0 p-0 text-white text-sm px-2 py-1 duration-300 overflow-hidden group-hover:w-auto opacity-0 group-hover:p-2 group-hover:opacity-100">
+            {item.label}
+          </p>
+        )}
+                </div>
+                
+                  <ul className="absolute left-full top-0 ml-1 bg-teal-900 rounded-md shadow-md hidden group-hover:block w-48 ">
+                    {item.submenu.map((sub, subIndex) => (
+                     <li key={subIndex}>
+                     <Link
+                       to={sub.path}
+                       className="block px-3 py-2 hover:bg-emerald-700 rounded-md duration-300 text-sm"
+                     >
+                       {sub.label}
+                     </Link>
+                   </li>
+                    ))}
+                  </ul>
+             
+                </div>
+                ) : (
                  <Link to={item.path} className="flex items-center gap-2 px-3 py-2 hover:bg-emerald-800 rounded-md duration-300 cursor-pointer text-white">
                
-                <div>{item.icons}</div>
+                {item.icons}
                 <p
                   className={`${
                     !open ? "width-0 translate-x-4" : "block"
                   } duration-500 overflow-hidden`}
-                >
-                  {item.label}
-                </p>
-                {!open && (
-                  <p className="absolute left-16 shadow-md rounded-md w-0 p-0 border-md 0 text-white text-sm px-2 py-1 duration-300 overflow-hidden group-hover:w-auto opacity-0 group-hover:p-2 group-hover:opacity-200">
-                    {item.label}
-                  </p>
-                )}
-               </Link>
-              </li>
-            );
-          })}
-        </ul>
+                > {item.label} </p>
+                   </Link>
+            )}
+          </li>
+        ))}
+      </ul>
+               
         <div className="px-3 py-2  hover:bg-emerald-800 rounded-md duration-300 cursor-pointer text-white flex gap-2 items-center my-3 relative group">
           <div>
             {" "}
