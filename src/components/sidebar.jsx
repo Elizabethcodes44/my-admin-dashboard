@@ -1,6 +1,6 @@
 import { useState } from "react";
 //icons
-import { CiMenuKebab } from "react-icons/ci";
+import { GiHamburgerMenu } from "react-icons/gi";
 import { MdLogoDev } from "react-icons/md";
 import { RiDashboard2Line } from "react-icons/ri";
 import { LuLogs } from "react-icons/lu";
@@ -19,17 +19,17 @@ const menuItems = [
   {
     icons: <LuLogs size={30} />,
     label: "User Logs",
-    path: "/userlogs"
+    path: "/getUserLogs"
   },
   {
     icons: <TbTransactionPound size={30} />,
     label: "Transactions",
-    path: "/transactions"
+    path: "/getUserTransactions"
   },
   {
     icons: <LuTicketsPlane size={30} />,
     label: "Tickets",
-    path: "/tickets"
+    path: "/getTickets"
   },
   {
     icons: <TbFileReport size={30} />,
@@ -48,13 +48,13 @@ const menuItems = [
   },
 ];
 
-export default function NavBar() {
-  const [open, setOpen] = useState(true);
+export default function NavBar({open, setOpen}) {
+ 
   const { theme } = useTheme();
   return (
     <>
       <nav
-        className={`shadow-md h-screen ${
+        className={`fixed shadow-md h-screen ${
           open ? "w-60" : "w-16"
         }  ${
           theme === "light" ? "bg-teal-950 text-white" : "bg-black text-white"} duration-500  p-2 flex flex-col `}
@@ -67,7 +67,7 @@ export default function NavBar() {
           />
 
           <div>
-            <CiMenuKebab
+            <GiHamburgerMenu
               size={34}
               className={`cursor-pointer duration-500 ${
                 !open && "rotate-90"

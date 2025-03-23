@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css';
-
+import {useState} from "react"
 import NavBar from './components/sidebar';
 import Dashboard from './components/dashboard';
 import Settings from './components/settings';
@@ -23,6 +23,7 @@ function App() {
  
 function MainApp() {
   const {theme} = useTheme();
+  const [open, setOpen] =useState(true);
 
   return (
     
@@ -30,15 +31,15 @@ function MainApp() {
   
     <Router>
     <div className='flex' >
-    <NavBar/>
-    <div className={`flex-1 p-6  min-h-screen bg-amber-200  ${
+    <NavBar open={open} setOpen={setOpen} /> 
+    <div className={`flex-1 p-6 ${open ? "ml-60" : "ml-16"} transition-all duration-500 min-h-screen bg-amber-200  ${
           theme === "light" ? "bg-white text-black" : "bg-black text-white"}`}>
       <Routes>
         
         <Route path = "/" element={<Dashboard/>}/>
-        <Route path = "/userlogs" element={<UserLogs/>}/>
-        <Route path = "/transactions" element={<Transactions/>}/>
-        <Route path = "/tickets" element={<Tickets/>}/>
+        <Route path = "/getUserLogs" element={<UserLogs/>}/>
+        <Route path = "/getUserTransactions" element={<Transactions/>}/>
+        <Route path = "/getTickets" element={<Tickets/>}/>
         <Route path = "/reports" element={<Reports/>}/>
         <Route path = "/settings" element={<Settings/>}/>
        
