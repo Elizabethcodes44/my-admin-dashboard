@@ -64,21 +64,23 @@ export default function NavBar({open, setOpen}) {
         className={`fixed shadow-md h-screen ${
           open ? "w-60" : "w-16"
         }  ${
-          theme === "light" ? "bg-teal-950 text-white" : "bg-black text-white"} duration-500  p-2 flex flex-col `}
+          theme === "light" ? "bg-yellow-200 text-gray-600" : "bg-gray-900 text-gray-100"} duration-500  p-2 flex flex-col `}
       >
         {/* header */}
         <div className=" px-3 py-2 h-20 flex justify-between items-center ">
           <MdLogoDev
             size={50}
-            className={`text-white ${open ? "block" : "hidden"}`}
+            className={` ${
+          theme === "light" ? "text-orange-600" : "text-cyan-400"}  ${open ? "block" : "hidden"}`}
           />
 
           <div>
             <GiHamburgerMenu
               size={34}
-              className={`cursor-pointer duration-500 ${
+              className={` ${
+          theme === "light" ? "text-orange-600" : "text-cyan-400"} cursor-pointer duration-500 ${
                 !open && "rotate-90"
-              } text-white`}
+              } `}
               onClick={() => setOpen(!open)}
             />
           </div>
@@ -91,10 +93,12 @@ export default function NavBar({open, setOpen}) {
               >
                 {item.submenu ? (
                   <div className="relative">
-                    <div className="flex items-center gap-2 px-3 py-2 hover:bg-emerald-800 rounded-md duration-300 cursor-pointer text-white"  >
+                    <div className= {`${
+          theme === "light" ? "hover:bg-orange-600 text-gray-600 " : "hover:bg-cyan-400 text-gray-100"} flex items-center gap-2 px-3 py-2  rounded-md duration-300 cursor-pointer ` } >
 
                       {item.icons}
-                      <p className={`${!open ? "width-0 translate-x-4" : "block"} duration-500 overflow-hidden`}>{item.label}</p>
+                      <p className={`${
+          theme === "light" ? " text-gray-600 " : " text-gray-100"} ${!open ? "width-0 translate-x-4" : "block"} duration-500 overflow-hidden text-gray-100`}>{item.label}</p>
                       {!open && (
           <p className="absolute left-16 shadow-md rounded-md w-0 p-0 text-white text-sm px-2 py-1 duration-300 overflow-hidden group-hover:w-auto opacity-0 group-hover:p-2 group-hover:opacity-100">
             {item.label}
@@ -102,12 +106,14 @@ export default function NavBar({open, setOpen}) {
         )}
                 </div>
                 
-                  <ul className="absolute left-full top-0 ml-1 bg-teal-900 rounded-md shadow-md hidden group-hover:block w-48 ">
+                  <ul className={`${
+          theme === "light" ? "hover:bg-yellow-200 text-gray-600 " : "hover:bg-cyan-400 text-gray-100"} absolute left-full top-0 ml-1  rounded-md shadow-md hidden group-hover:block w-48 `}>
                     {item.submenu.map((sub, subIndex) => (
                      <li key={subIndex}>
                      <Link
                        to={sub.path}
-                       className="block px-3 py-2 hover:bg-emerald-700 rounded-md duration-300 text-sm"
+                       className={`${
+          theme === "light" ? "bg-yellow-200 text-gray-600 hover:bg-orange-600 " : "bg-gray-900 text-gray-100 hover:bg-cyan-400"} block px-3 py-2 rounded-md duration-300 text-sm`}
                      >
                        {sub.label}
                      </Link>
@@ -117,7 +123,8 @@ export default function NavBar({open, setOpen}) {
              
                 </div>
                 ) : (
-                 <Link to={item.path} className="flex items-center gap-2 px-3 py-2 hover:bg-emerald-800 rounded-md duration-300 cursor-pointer text-white">
+                 <Link to={item.path} className={`flex items-center gap-2 px-3 py-2  rounded-md duration-300 cursor-pointer ${
+          theme === "light" ? "hover:bg-orange-600 text-gray-600 " : "hover:bg-cyan-400 text-gray-100"}`}>
                
                 {item.icons}
                 <p
@@ -131,7 +138,8 @@ export default function NavBar({open, setOpen}) {
         ))}
       </ul>
                
-        <div className="px-3 py-2  hover:bg-emerald-800 rounded-md duration-300 cursor-pointer text-white flex gap-2 items-center my-3 relative group">
+        <div className={` ${
+          theme === "light" ? "hover:bg-orange-600 text-gray-600 " : "hover:bg-cyan-400 text-gray-100"}px-3 py-2  rounded-md duration-300 cursor-pointer  flex gap-2 items-center my-3 relative group` }>
           <div>
             {" "}
             <TbHelpHexagonFilled size={30} />{" "}

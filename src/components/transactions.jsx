@@ -1,4 +1,5 @@
 import { useState,} from "react";
+import { useTheme } from "./theme";
 export default function Transactions() {
   const [transactions, setTransactions] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -12,6 +13,9 @@ export default function Transactions() {
   const [date, setDate] = useState("");
   const [type, setType] = useState("");
   const [status, setStatus] = useState("");
+  
+  
+  const { theme } = useTheme();
 
   //Fetch all transactıons on button clıck (or wıth fılters)
 
@@ -138,7 +142,8 @@ export default function Transactions() {
       <div className="flex gap-4 mt-4">
         <button
           onClick={fetchTransactions}
-          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          className={` ${
+            theme === "light" ? "bg-gray-600 text-gray-400" : "bg-cyan-400 text-gray-100"}   px-4 py-2 rounded hover:bg-gray-500 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600`}
           disabled={loading}
         >
           {loading ? "Loading..." : "Fetch Transactions"}
@@ -154,7 +159,8 @@ export default function Transactions() {
             setStatus("");
             setTransactions([]);
           }}
-          className="bg-gray-400 text-white px-4 py-2 rounded hover:bg-gray-500"
+          className={` ${
+            theme === "light" ? "bg-gray-400 text-gray-600" : "bg-cyan-300 text-gray-100"}   px-4 py-2 rounded hover:bg-gray-500`}
         >
           Clear Filters
         </button>

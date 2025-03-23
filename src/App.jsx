@@ -34,8 +34,8 @@ function MainApp() {
     <Router>
     <div className='flex' >
     <NavBar open={open} setOpen={setOpen} /> 
-    <div className={`flex-1 p-6 ${open ? "ml-60" : "ml-16"} transition-all duration-500 min-h-screen bg-amber-200  ${
-          theme === "light" ? "bg-white text-black" : "bg-black text-white"}`}>
+    <div className={`flex-1 p-6 ${open ? "ml-60" : "ml-16"} transition-all duration-500 min-h-screen   ${
+          theme === "light" ? "bg-orange-100 text-gray-600" : "bg-gray-800 text-gray-100"}`}>
       <Routes>
         
         <Route path = "/" element={<Dashboard/>}/>
