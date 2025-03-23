@@ -4,7 +4,7 @@ import {useState} from "react"
 import NavBar from './components/sidebar';
 import Dashboard from './components/dashboard';
 import Settings from './components/settings';
-import Tickets from './components/tickets';
+import Tickets from './components/ticketscomponent/tickets';
 import Transactions from './components/transactions';
 import ThemeProvider from "./components/theme";
 import Reports from './components/reports';
@@ -39,7 +39,7 @@ function MainApp() {
         <Route path = "/" element={<Dashboard/>}/>
         <Route path = "/getUserLogs" element={<UserLogs/>}/>
         <Route path = "/getUserTransactions" element={<Transactions/>}/>
-        <Route path = "/getTickets" element={<Tickets/>}/>
+        <Route path = "/tickets" element={<Tickets/>}/>
         <Route path = "/reports" element={<Reports/>}/>
         <Route path = "/settings" element={<Settings/>}/>
        
