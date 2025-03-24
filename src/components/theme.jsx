@@ -7,7 +7,7 @@ const toggleTheme = () => {
     setTheme(theme === 'light' ? 'dark' : 'light');
 };
 useEffect(() => {
-    document.body.className = theme === 'light' ? 'bg-cream  text-brown' : 'bg-gray-900 text-white';
+    document.body.className = theme === 'light' ? 'bg-white  text-gray-800' : 'bg-gray-900 text-gray-100';
 })
 return(
     <themeContext.Provider value={{theme, toggleTheme}}>
