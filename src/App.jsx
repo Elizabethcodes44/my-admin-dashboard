@@ -10,9 +10,9 @@ import Tickets from './components/ticket';
 import Transactions from './components/transactions';
 import ThemeProvider from "./components/theme";
 import Reports from './components/reports';
-import UserLogs from './components/users';
+import UserLogs from './components/userlogs';
 import FloatingDarkModeToggle from "./components/floatingdarkmodetoggle";
-import profileImage from "../src/assets/profile.jpeg"
+import profileImage from "../src/assets/profile.avif"
 
 
 
@@ -40,7 +40,7 @@ function MainApp() {
     <div className={`flex-1 flex flex-col p-3  ${open ? "ml-1" : "ml-1"} transition-all duration-500 min-h-screen ${theme === "light" ? "bg-white text-gray-700" : "bg-slate-950 text-gray-100"} `}>
       {/* Top Bar with profile =*/}
       <div className={`flex items-center space-x-4 p-2   rounded-full shadow-md ${theme === "light" ? "bg-white text-gray-700" : "bg-black text-gray-100"} `}>
-        <h2 className = "text-lg font-semibold ">Welcome, User</h2>
+        <h2 className = "font-semibold text-sm ">Welcome Admin</h2>
         <div className="relative">
           <img src={profileImage} 
                 alt="Profile" 

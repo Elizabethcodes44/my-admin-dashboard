@@ -58,7 +58,7 @@ export default function NavBar({open, setOpen}) {
   return (
     <>
       <nav
-         className={`fixed h-screen md:relative  transition-all duration-500 ${
+         className={`fixed h-screen relative  transition-all duration-500 ${
           open ? "w-50 ml-0" : "w-16 -ml-64 md:ml-0"
         }  backdrop-blur-md p-4 flex flex-col shadow-lg text-sm ${theme === "light" ? "bg-white text-gray-800" : "bg-gray-950 text-gray-100" }`}
       >
@@ -67,16 +67,17 @@ export default function NavBar({open, setOpen}) {
           <MdLogoDev
             size={40}
             className={` ${
-          theme === "light" ? "text-gray-700" : "text-gray-100"}  ${open ? "block" : "hidden"}`}
+          theme === "light" ? "text-gray-700" : "text-gray-100"}  ${open ? "block" : "hidden"} `}
           />
 
           
-            <GiHamburgerMenu
-              size={20}
-              className={` ${
-          theme === "light" ? "text-gray-700" : "text-gray-100"} cursor-pointer duration-500 `}
-              onClick={() => setOpen(!open)}
-            />
+<GiHamburgerMenu
+  size={20}
+  className={`${
+    theme === "light" ? "text-gray-700" : "text-gray-100"
+  } cursor-pointer duration-500 `}  // Always visible, but optional hidden class for larger screens
+  onClick={() => setOpen(!open)}
+/>
           
         </div>
         <ul className="flex-1">

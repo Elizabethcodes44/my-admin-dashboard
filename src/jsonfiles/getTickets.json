@@ -1,40 +1,114 @@
 {
-    "success": true,
-    "data": [{
-    "id": 2,
-    "user_id": "6b3f6a57-fe46-4cd5-9db0-f7ff31344b0c",
-    "message": "i am trying to send money out but it saying connection error...",
-    "status": "closed",
-"email": "johnnycambel8@gmail.com",
-    "ticket_id": "TICKET-3ni2lzru",
-    "created_at": "2025-02-08T09:47:14.412Z",
-    "updated_at": "2025-03-12T15:20:45.158Z",
-    "support_note": "user request for transaction that they haven’t received...",
-    "support_user_id": "e4a98937-5c7a-47a8-b541-38754b8ffc9d"
+  "success": true,
+  "data": [
+    {
+      "id": 2,
+      "user_id": "6b3f6a57-fe46-4cd5-9db0-f7ff31344b0c",
+      "message": "i am trying to send money out but it saying connection error...",
+      "status": "closed",
+      "email": "johnnycambel8@gmail.com",
+      "ticket_id": "TICKET-3ni2lzru",
+      "created_at": "2025-02-08T09:47:14.412Z",
+      "updated_at": "2025-03-12T15:20:45.158Z",
+      "support_note": "user request for transaction that they haven’t received...",
+      "support_user_id": "e4a98937-5c7a-47a8-b541-38754b8ffc9d"
     },
     {
-        "id": 3,
-        "user_id": "6b3f6a57-fe46-4cd5-9db0-f7ff31344b0c",
-        "message": "i am trying to send money out but it saying connection error...",
-        "status": "closed",
-    "email": "johnnycambel8@gmail.com",
-        "ticket_id": "TICKET-3ni2labc",
-        "created_at": "2025-02-08T09:47:14.412Z",
-        "updated_at": "2025-03-12T15:20:45.158Z",
-        "support_note": "user request for transaction that they haven’t received...",
-        "support_user_id": "e4a98937-5c7a-47a8-b541-38754b8ffc9d"
-        },
-        {
-            "id": 4,
-            "user_id": "6b3f6a57-fe46-4cd5-9db0-f7ff31344b0c",
-            "message": "i am trying to send money out but it saying connection error...",
-            "status": "open",
-        "email": "johnnycambel8@gmail.com",
-            "ticket_id": "TICKET-3ni2ldef",
-            "created_at": "2025-02-08T09:47:14.412Z",
-            "updated_at": "2025-03-12T15:20:45.158Z",
-            "support_note": "user request for transaction that they haven’t received...",
-            "support_user_id": "e4a98937-5c7a-47a8-b541-38754b8ffc9d"
-            }
-   ]
- }
+      "id": 3,
+      "user_id": "6b3f6a57-fe46-4cd5-9db0-f7ff31344b0c",
+      "message": "i am trying to send money out but it saying connection error...",
+      "status": "closed",
+      "email": "johnnycambel8@gmail.com",
+      "ticket_id": "TICKET-3ni2labc",
+      "created_at": "2025-02-08T09:47:14.412Z",
+      "updated_at": "2025-03-12T15:20:45.158Z",
+      "support_note": "user request for transaction that they haven’t received...",
+      "support_user_id": "e4a98937-5c7a-47a8-b541-38754b8ffc9d"
+    },
+
+    {
+      "id": 4,
+      "user_id": "6b3f6a57-fe46-4cd5-9db0-f7ff31344b0c",
+      "message": "i am trying to send money out but it saying connection error...",
+      "status": "open",
+      "email": "johnnycambel8@gmail.com",
+      "ticket_id": "TICKET-3ni2ldef",
+      "created_at": "2024-02-08T09:47:14.412Z",
+      "updated_at": "2025-03-12T15:20:45.158Z",
+      "support_note": "user request for transaction that they haven’t received...",
+      "support_user_id": "e4a98937-5c7a-47a8-b541-38754b8ffc9d"
+    },
+    {
+      "id": 5,
+      "user_id": "6b3f6a57-fe46-4cd5-9db0-f7ff31344b0c",
+      "message": "i am trying to send money out but it saying connection error...",
+      "status": "open",
+      "email": "johnnycambel8@gmail.com",
+      "ticket_id": "TICKET-3ni2ldef",
+      "created_at": "2025-02-08T09:47:14.412Z",
+      "updated_at": "2025-03-12T15:20:45.158Z",
+      "support_note": "user request for transaction that they haven’t received...",
+      "support_user_id": "e4a98937-5c7a-47a8-b541-38754b8ffc9d"
+    },
+    {
+      "id": 6,
+      "user_id": "6b3f6a57-fe46-4cd5-9db0-f7ff31344b0c",
+      "message": "i am trying to send money out but it saying connection error...",
+      "status": "open",
+      "email": "johnnycambel8@gmail.com",
+      "ticket_id": "TICKET-3ni2ldef",
+      "created_at": "2025-01-08T09:47:14.412Z",
+      "updated_at": "2025-03-12T15:20:45.158Z",
+      "support_note": "user request for transaction that they haven’t received...",
+      "support_user_id": "e4a98937-5c7a-47a8-b541-38754b8ffc9d"
+    },
+    {
+      "id": 7,
+      "user_id": "6b3f6a57-fe46-4cd5-9db0-f7ff31344b0c",
+      "message": "i am trying to send money out but it saying connection error...",
+      "status": "open",
+      "email": "johnnycambel8@gmail.com",
+      "ticket_id": "TICKET-3ni2ldef",
+      "created_at": "2025-03-08T09:47:14.412Z",
+      "updated_at": "2025-03-12T15:20:45.158Z",
+      "support_note": "user request for transaction that they haven’t received...",
+      "support_user_id": "e4a98937-5c7a-47a8-b541-38754b8ffc9d"
+    },
+    {
+      "id": 8,
+      "user_id": "6b3f6a57-fe46-4cd5-9db0-f7ff31344b0c",
+      "message": "i am trying to send money out but it saying connection error...",
+      "status": "open",
+      "email": "johnnycambel8@gmail.com",
+      "ticket_id": "TICKET-3ni2ldef",
+      "created_at": "2025-02-08T09:47:14.412Z",
+      "updated_at": "2025-03-12T15:20:45.158Z",
+      "support_note": "user request for transaction that they haven’t received...",
+      "support_user_id": "e4a98937-5c7a-47a8-b541-38754b8ffc9d"
+    },
+    {
+      "id": 9,
+      "user_id": "6b3f6a57-fe46-4cd5-9db0-f7ff31344b0c",
+      "message": "i am trying to send money out but it saying connection error...",
+      "status": "open",
+      "email": "johnnycambel8@gmail.com",
+      "ticket_id": "TICKET-3ni2ldef",
+      "created_at": "2025-01-08T09:47:14.412Z",
+      "updated_at": "2025-03-12T15:20:45.158Z",
+      "support_note": "user request for transaction that they haven’t received...",
+      "support_user_id": "e4a98937-5c7a-47a8-b541-38754b8ffc9d"
+    },
+    {
+      "id": 10,
+      "user_id": "6b3f6a57-fe46-4cd5-9db0-f7ff31344b0c",
+      "message": "i am trying to send money out but it saying connection error...",
+      "status": "open",
+      "email": "johnnycambel8@gmail.com",
+      "ticket_id": "TICKET-3ni2ldef",
+      "created_at": "2025-03-08T09:47:14.412Z",
+      "updated_at": "2025-03-12T15:20:45.158Z",
+      "support_note": "user request for transaction that they haven’t received...",
+      "support_user_id": "e4a98937-5c7a-47a8-b541-38754b8ffc9d"
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-import { useState,} from "react";
+import { useState } from "react";
 export default function Transactions() {
   const [transactions, setTransactions] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -67,78 +67,83 @@ export default function Transactions() {
       .finally(() => setLoading(false));
   };
   return (
-    <div className="p-6">
-        <h2 className="text-2xl font-semibold mb-4">User Transactions</h2>
+    <div className="p-6 text-sm">
+      <h2 className="text-xl font-semibold mb-4 text-center">Transactions</h2>
 
-        <div className="grid shadow-lg rounded-md md:grid-cols-3 gap-6">
-            <div className="px-4 py-2">
-                <h3>Transaction Details</h3>
-                <input type="text" value={userId}
-                onChange={(e) => setUserId(e.target.value)}
-                placeholder="User ID" className="w-full border p-2 rounded mb-2"/>
-                 <input
+      <div className="grid shadow-lg rounded-md md:grid-cols-3 gap-4">
+        <div className="px-2 py-2 p-4 space-x-2">
+         
+          <input
+            type="text"
+            value={userId}
+            onChange={(e) => setUserId(e.target.value)}
+            placeholder="User ID"
+            className="w-[150px] h-[20px] border  p-3  rounded mb-2"
+          />
+          <input
             type="text"
             value={internalRefId}
             onChange={(e) => setInternalRefId(e.target.value)}
             placeholder="Internal Ref ID"
-            className="w-full border p-2 rounded mb-2"
+            className="w-[150px] h-[20px] border p-3 rounded mb-2"
           />
           <input
             type="text"
             value={txId}
             onChange={(e) => setTxId(e.target.value)}
             placeholder="Transaction ID"
-            className="w-full border p-2 rounded mb-2"
+            className="w-[150px] h-[20px] border p-3 rounded mb-2"
           />
         </div>
 
         {/* Amount & Date Filters */}
-        <div>
-          <h3 className="text-lg font-semibold mb-2">Amount & Date</h3>
+        <div className="px-2 py-2 space-x-2">
+          
           <input
             type="number"
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
             placeholder="Amount"
-            className="w-full border p-2 rounded mb-2"
+            className="w-[150px] h-[20px] border p-3 rounded mb-2"
           />
           <input
             type="date"
             value={date}
             onChange={(e) => setDate(e.target.value)}
-            className="w-full border p-2 rounded mb-2"
+            className="w-[150px] h-[20px] border p-3 rounded mb-2"
           />
         </div>
 
         {/* Type & Status Filters */}
-        <div>
-          <h3 className="text-lg font-semibold mb-2">Type & Status</h3>
+        <div className="px-2 py-2 space-x-2">
+         
+          
           <select
             value={type}
             onChange={(e) => setType(e.target.value)}
-            className="w-full border p-2 rounded mb-2"
+            className="w-[150px] h-[20px] border p-3  rounded mb-2"
           >
-            <option value="">All Types</option>
+            <option value="" default>Transaction</option>
             <option value="withdrawal">Withdrawal</option>
             <option value="deposit">Deposit</option>
           </select>
           <select
             value={status}
             onChange={(e) => setStatus(e.target.value)}
-            className="w-full border p-2 rounded mb-2"
+            className="w-[150px] h-[20px] border p-3 rounded mb-2"
           >
             <option value="">All Status</option>
             <option value="pending">Pending</option>
-            <option value="completed">Completed</option>
-            <option value="failed">Failed</option>
+            <option value="completed">Close</option>
+            <option value="failed">Open</option>
           </select>
         </div>
       </div>
 
-      <div className="flex gap-4 mt-4">
+      <div className="flex gap-4 mt-4 text-sm">
         <button
           onClick={fetchTransactions}
-          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          className="bg-gray-800 text-white text-sm px-4 py-2 rounded hover:bg-gray-950"
           disabled={loading}
         >
           {loading ? "Loading..." : "Fetch Transactions"}
@@ -154,7 +159,7 @@ export default function Transactions() {
             setStatus("");
             setTransactions([]);
           }}
-          className="bg-gray-400 text-white px-4 py-2 rounded hover:bg-gray-500"
+          className="bg-gray-400 text-white px-4 py-2 rounded hover:bg-gray-500 text-sm"
         >
           Clear Filters
         </button>
@@ -168,32 +173,39 @@ export default function Transactions() {
         <div className="overflow-x-auto mt-4">
           <table className="w-full border-collapse border border-gray-300">
             <thead>
-              <tr className="bg-gray-200">
-                <th className="border p-2">ID</th>
-                <th className="border p-2">Type</th>
-                <th className="border p-2">Asset</th>
-                <th className="border p-2">Amount</th>
-                <th className="border p-2">Date</th>
-                <th className="border p-2">To Address</th>
-                <th className="border p-2">Status</th>
-                <th className="border p-2">Internal Ref ID</th>
-                <th className="border p-2">Transaction ID</th>
+              <tr className="bg-gray-200 text-sm">
+                <th className=" p-2">ID</th>
+                <th className=" p-2">Type</th>
+                <th className="p-2">Asset</th>
+                <th className="p-2">Amount</th>
+                <th className=" p-2">Date</th>
+                <th className="p-2">To Address</th>
+                <th className="p-2">Status</th>
+                <th className=" p-2">Internal Ref ID</th>
+                <th className="p-2">Transaction ID</th>
               </tr>
             </thead>
             <tbody>
               {transactions.map((transaction) => (
-                <tr key={transaction.id} className="text-center">
-                  <td className="border p-2">{transaction.id}</td>
-                  <td className="border p-2">{transaction.transaction_type}</td>
-                  <td className="border p-2">{transaction.asset}</td>
-                  <td className="border p-2">{transaction.amount}</td>
-                  <td className="border p-2">
+                <tr key={transaction.id} className="text-center text-sm">
+                  <td className=" shadow p-2">{transaction.id}</td>
+                  <td className="shadow p-2">{transaction.transaction_type}</td>
+                  <td className="shadow p-2">{transaction.asset}</td>
+                  <td className="shadow p-2">{transaction.amount}</td>
+                  <td className="shadow p-2">
                     {new Date(transaction.transaction_date).toLocaleString()}
                   </td>
-                  <td className="border p-2">{transaction.to_address}</td>
-                  <td className="border p-2">{transaction.status}</td>
-                  <td className="border p-2">{transaction.internal_ref_id}</td>
-                  <td className="border p-2">{transaction.tx_id}</td>
+                  <td className="shadow p-2">{transaction.to_address}</td>
+                  <td
+                    className={` 
+    ${transaction.status === "closed" ? "bg-green-500  p-2" : ""} 
+    ${transaction.status === "open" ? "bg-red-500  p-2" : ""} 
+    ${transaction.status === "pending" ? "bg-yellow-500 p-2" : ""}`}
+                  >
+                    {transaction.status}
+                  </td>
+                  <td className="shadow p-2">{transaction.internal_ref_id}</td>
+                  <td className="shadow p-2">{transaction.tx_id}</td>
                 </tr>
               ))}
             </tbody>
@@ -204,8 +216,4 @@ export default function Transactions() {
       )}
     </div>
   );
-
-   
-
- 
 }
