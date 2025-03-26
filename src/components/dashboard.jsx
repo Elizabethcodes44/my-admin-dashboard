@@ -54,7 +54,7 @@ export default function Dashboard () {
     return(
         <div className="p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 cursor-pointer">
       {/* Ticket Status Pie Chart */}
-      <div className="bg-white p-4 shadow-md rounded-lg cursor-pointer">
+      <div className=" p-4 shadow-md rounded-lg cursor-pointer">
         <h2 className="text-sm text-center font-bold mb-2">Ticket Status Overview</h2>
         <ResponsiveContainer width="100%" height={300}>
           <PieChart>
@@ -69,7 +69,7 @@ export default function Dashboard () {
       </div>
 
       {/* Transaction Summary Bar Chart */}
-      <div className="bg-white p-4 shadow-md rounded-lg">
+      <div className=" p-4 shadow-md rounded-lg">
         <h2 className="text-sm text-center font-bold mb-2">Transaction Summary</h2>
         <ResponsiveContainer width="100%" height={300}>
           <BarChart data={[{ name: "Total Transactions", amount: transactionSummary.total }]}>
@@ -77,13 +77,13 @@ export default function Dashboard () {
             <XAxis dataKey="name" />
             <YAxis />
             <Tooltip />
-            <Bar dataKey="amount" fill="#82ca9d" />
+            <Bar dataKey="amount" fill="" />
           </BarChart>
         </ResponsiveContainer>
       </div>
 
       {/* Ticket Trend Line Chart */}
-      <div className="bg-white p-4 shadow-md rounded-lg">
+      <div className=" p-4 shadow-md rounded-lg">
         <h2 className="text-sm text-center font-bold mb-2">Ticket Trend Over Time</h2>
         <ResponsiveContainer width="100%" height={300}>
           <LineChart data={ticketTrendData}>

@@ -32,16 +32,8 @@ const menuItems = [
     path: "/getTickets"
    
   },
-  {
-    icons: <TbFileReport size={20} />,
-    label: "Reports",
-    path: "/reports"
-  },
-  {
-    icons: <IoSettings size={20} />,
-    label: "Settings",
-    path: "/settings"
-  },
+ 
+  
   {
     icons: <BiLogOut size={20} />,
     label: "Logout",
@@ -57,11 +49,21 @@ export default function NavBar({open, setOpen}) {
 
   return (
     <>
+     {/* Mobile overlay */}
+     {open && (
+        <div
+          className="fixed inset-0 bg-gray-800 bg-opacity-50 z-40 md:hidden"
+          onClick={() => setOpen(false)}
+        ></div>
+      )}
       <nav
-         className={`fixed h-screen relative  transition-all duration-500 ${
-          open ? "w-50 ml-0" : "w-16 -ml-64 md:ml-0"
-        }  backdrop-blur-md p-4 flex flex-col shadow-lg text-sm ${theme === "light" ? "bg-white text-gray-800" : "bg-gray-950 text-gray-100" }`}
-      >
+         className={`fixed top-0 left-0 h-screen z-50 transition-all duration-500 ${
+          open ? "w-50" : "w-16"
+        } md:relative  backdrop-blur-md p-4 flex flex-col shadow-lg text-sm ${
+          theme === "light"
+            ? "bg-white text-gray-800"
+            : "bg-gray-950 text-gray-100"
+        }`} >
         {/* header */}
         <div className="flex items-center justify-between mb-8">
           <MdLogoDev
@@ -121,13 +123,17 @@ export default function NavBar({open, setOpen}) {
             {" "}
             <TbHelpHexagonFilled size={20} />{" "}
           </div>
-          <span
-                  className={`${
-                    !open ? "width-0 translate-x-4" : "block"
-                  } duration-500 overflow-hidden`}
-                >
-                 Help
-                </span>
+         
+  <span
+    className={`${
+      !open ? "width-0 translate-x-4" : "block"
+    } duration-500 overflow-hidden`}
+  > <Link to="/chatbot">
+    Help
+    </Link>
+  </span>
+
+
                 {!open && (
                   <span className="absolute left-16 shadow-md rounded-md w-0 p-0 border-md 0 text-white text-sm px-2 py-1 duration-300 overflow-hidden bg-gray-800 group-hover:w-auto opacity-0 group-hover:p-2 group-hover:opacity-200 ">
                     Help

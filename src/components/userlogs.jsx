@@ -93,9 +93,9 @@ export default function UserLogs() {
             theme === "light" ? "bg-white" : "bg-black"
           } shadow-md p-4 rounded-md overflow-x-auto`}
         >
-          <table className="w-full border-collapse shadow bg-white text-center  text-sm border border-gray-200">
+          <table className="w-full border-collapse shadow  text-center  text-sm border border-gray-200">
             <thead className="text-sm text-center">
-              <tr className="bg-gray-100">
+              <tr className="">
                 <th className=" p-2">ID</th>
                 <th className=" p-2">User ID</th>
               
@@ -109,7 +109,7 @@ export default function UserLogs() {
             </thead>
             <tbody>
               {logs.map((log) => (
-                <tr key={log.id} className="shadow bg-white text-center text-sm">
+                <tr key={log.id} className="shadow  text-center text-sm">
                   <td className="p-2">{log.id}</td>
                   <td className="p-2">{log.user_id}</td>
                   <td className="p-2">{log.log_type}</td>

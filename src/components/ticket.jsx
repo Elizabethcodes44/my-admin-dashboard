@@ -1,7 +1,8 @@
 import { useState,  } from "react";
 import ticketsData from "../../src/jsonfiles/getTickets.json";
-
+import { useTheme } from "../components/theme";
 export default function Ticket() {
+  const {theme} = useTheme()
   const [tickets, setTickets] = useState([]);
   const [ticketId, setTicketId] = useState("");
   const [searchText, setSearchText] = useState("");
@@ -81,7 +82,7 @@ const numbers = [...Array(npage + 1).keys()].slice(1)
     setLoadingClose(true);
     setTimeout(() => {
       setLoadingClose(false);
-      alert(`Ticket Closed: ${selectedTicket.ticket_id} - Message: ${closeMessage}`);
+      alert(`Ticket Closed: ${selectedTicket.ticket_id} - SupportNote: ${closeMessage}`);
       setSelectedTicket(null);
       setCloseMessage("");
     }, 2000);
@@ -92,20 +93,20 @@ const numbers = [...Array(npage + 1).keys()].slice(1)
   return (
     <div className="p-6  mx-auto text-[10px]">
       {/* Search Inputs */}
-      <div className="flex gap-4 mb-4">
+      <div className="flex gap-4 mb-4 flex-col md:flex-row">
         <input
           type="text"
           placeholder="Enter Ticket ID"
           value={ticketId}
           onChange={(e) => setTicketId(e.target.value)}
-          className="flex-1 p-2 rounded-md shadow-sm"
+          className="flex-1 p-2 rounded-md border shadow-sm"
         />
         <input
           type="text"
           placeholder="Enter Status"
           value={status}
           onChange={(e) => setStatus(e.target.value)}
-          className="flex-1 p-2  rounded-md shadow-sm"
+          className="flex-1 p-2  rounded-md border shadow-sm"
         />
         <button
           onClick={fetchTickets}
@@ -122,7 +123,8 @@ const numbers = [...Array(npage + 1).keys()].slice(1)
       {/* Tickets Table */}
       {tickets.length > 0 && (
          <>
-      <table className="min-w-full bg-white text-[10px] mt-6 shadow  text-center cursor-pointer">
+         <div className="overflow-x-auto max-w-full sm:max-w-[90%] md:max-w-[100%]">
+      <table className="min-w-full  text-[10px] mt-6 shadow  text-center cursor-pointer   ">
         <thead>
           <tr className=" text-center">
           <th className="py-2 px-4  text-center shadow">Ticket ID</th>
@@ -139,7 +141,7 @@ const numbers = [...Array(npage + 1).keys()].slice(1)
             <span
                   className={`${
                     ticket.status === "closed" ? "text-red-500" : "text-green-500"
-                  }`}
+                  } shadow`}
                 >
               {ticket.status.toUpperCase()}
               </span>
@@ -151,7 +153,7 @@ const numbers = [...Array(npage + 1).keys()].slice(1)
              <td className="py-2 px-4 flex gap-3 shadow">
             <button
                onClick={() => handlePick(ticket)}
-               className={`text-center px-4 py-2 rounded ${
+               className={`text-center px-4 py-2 rounded border border-bg-white ${
                  ticket.status === "closed"
                    ? "bg-gray-400 cursor-not-allowed"
                    : "bg-gray-500 text-white hover:bg-gray-700"
@@ -164,9 +166,10 @@ const numbers = [...Array(npage + 1).keys()].slice(1)
                 "Pick"
               )}
             </button>
+            
             <button
                   onClick={() => setSelectedTicket(ticket)}
-                  className={`text-center px-4 py-2 rounded ${
+                  className={`text-center px-4 py-2 border border-bg-white rounded ${
                     ticket.status === "closed"
                       ? "bg-gray-400 cursor-not-allowed"
                       : "bg-gray-950 text-white hover:bg-red-700"
@@ -183,6 +186,7 @@ const numbers = [...Array(npage + 1).keys()].slice(1)
          
         </tbody>
       </table>
+      </div>
       <nav className="mt-4 flex justify-center" >
         <ul className="flex flex-row space-x-2">
           <li >
@@ -225,33 +229,40 @@ const numbers = [...Array(npage + 1).keys()].slice(1)
   
      
 
-      {/* Close Ticket Modal */}
-      {selectedTicket && (
-        <div className="mt-4 p-4 border-t">
-          
-            <h3 className=" font-bold ">Close Ticket - {selectedTicket.ticket_id}</h3>
-            
-            <textarea
-              value={closeMessage}
-              onChange={(e) => setCloseMessage(e.target.value)}
-              placeholder="Add a support note..."
-              className="w-full p-2 border rounded-md mt-2"
-            ></textarea>
-            
-              <button
-                onClick={handleCloseTicket}
-            className="bg-red-500 text-white px-4 py-2 rounded mt-2"
-              >
-              
-                {loadingClose ? (
-                  <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
-                ) : (
-                  "Submit"
-                )}
-              </button>
-           
-        </div>
-      )}
+  {selectedTicket && (
+  <div className="fixed inset-0  bg-opacity-50 flex items-center justify-center">
+    <div className={`${theme === "light" ? "bg-white" : "bg-black"} p-6 rounded-md shadow w-1/3`}>
+      <h3 className="font-bold">Close Ticket - {selectedTicket.ticket_id}</h3>
+
+      <textarea
+        value={closeMessage}
+        onChange={(e) => setCloseMessage(e.target.value)}
+        placeholder="Add a support note..."
+        className="w-full p-2 border rounded-md mt-2"
+      ></textarea>
+
+      <div className="flex justify-end mt-2 gap-2">
+        <button
+          onClick={() => setSelectedTicket(null)}
+          className={`${theme === "light" ? "bg-gray-300" : "bg-gray-800"}  px-4 py-2 rounded`}
+        >
+          Cancel
+        </button>
+        <button
+          onClick={handleCloseTicket}
+          className="bg-red-500 text-white px-4 py-2 rounded"
+        >
+          {loadingClose ? (
+            <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+          ) : (
+            "Submit"
+          )}
+        </button>
+      </div>
+    </div>
+  </div>
+)}
+
       </div>
 
      

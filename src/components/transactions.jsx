@@ -13,6 +13,15 @@ export default function Transactions() {
   const [type, setType] = useState("");
   const [status, setStatus] = useState("");
 
+  //pagination
+  
+  const [currentPage, setCurrentPage] = useState(1)
+  const recordsPerPage = 5;
+  const lastIndex = currentPage * recordsPerPage
+  const firstIndex = lastIndex -recordsPerPage;
+  const records = transactions.slice(firstIndex, lastIndex);
+  const npage = Math.ceil(transactions.length / recordsPerPage)
+  const numbers = [...Array(npage + 1).keys()].slice(1)
   //Fetch all transactıons on button clıck (or wıth fılters)
 
   const fetchTransactions = () => {
@@ -68,7 +77,7 @@ export default function Transactions() {
   };
   return (
     <div className="p-6 text-sm">
-      <h2 className="text-xl font-semibold mb-4 text-center">Transactions</h2>
+      <h2 className="text-sm font-semibold mb-4 text-center">Transactions</h2>
 
       <div className="grid shadow-lg rounded-md md:grid-cols-3 gap-4">
         <div className="px-2 py-2 p-4 space-x-2">
@@ -132,10 +141,10 @@ export default function Transactions() {
             onChange={(e) => setStatus(e.target.value)}
             className="w-[150px] h-[20px] border p-3 rounded mb-2"
           >
-            <option value="">All Status</option>
-            <option value="pending">Pending</option>
-            <option value="completed">Close</option>
-            <option value="failed">Open</option>
+            <option value="">Status</option>
+            <option value="pending">pending</option>
+            <option value="completed">close</option>
+            <option value="failed">open</option>
           </select>
         </div>
       </div>
@@ -143,7 +152,7 @@ export default function Transactions() {
       <div className="flex gap-4 mt-4 text-sm">
         <button
           onClick={fetchTransactions}
-          className="bg-gray-800 text-white text-sm px-4 py-2 rounded hover:bg-gray-950"
+          className="bg-gray-800 text-white text-[12px] px-4 py-2 rounded hover:bg-gray-950"
           disabled={loading}
         >
           {loading ? "Loading..." : "Fetch Transactions"}
@@ -159,7 +168,7 @@ export default function Transactions() {
             setStatus("");
             setTransactions([]);
           }}
-          className="bg-gray-400 text-white px-4 py-2 rounded hover:bg-gray-500 text-sm"
+          className="bg-gray-400 text-white px-4 py-2 rounded hover:bg-gray-500 text-[10px]"
         >
           Clear Filters
         </button>
@@ -170,24 +179,24 @@ export default function Transactions() {
 
       {/* Transactions Table */}
       {transactions.length > 0 ? (
-        <div className="overflow-x-auto mt-4">
-          <table className="w-full border-collapse border border-gray-300">
+        <div className="overflow-x-auto mt-6">
+          <table className="w-full border-collapse border ">
             <thead>
-              <tr className="bg-gray-200 text-sm">
-                <th className=" p-2">ID</th>
-                <th className=" p-2">Type</th>
-                <th className="p-2">Asset</th>
-                <th className="p-2">Amount</th>
-                <th className=" p-2">Date</th>
-                <th className="p-2">To Address</th>
-                <th className="p-2">Status</th>
-                <th className=" p-2">Internal Ref ID</th>
-                <th className="p-2">Transaction ID</th>
+              <tr className=" text-[12px]">
+                <th className=" shadow p-2">ID</th>
+                <th className=" shadow p-2">Type</th>
+                <th className="shadow p-2">Asset</th>
+                <th className="shadow p-2">Amount</th>
+                <th className=" shadow p-2">Date</th>
+                <th className="shadow p-2">To Address</th>
+                <th className=" shadow p-2">Status</th>
+                <th className=" shadow p-2">Internal Ref ID</th>
+                <th className="shadow p-2">Transaction ID</th>
               </tr>
             </thead>
             <tbody>
-              {transactions.map((transaction) => (
-                <tr key={transaction.id} className="text-center text-sm">
+              {records.map((transaction) => (
+                <tr key={transaction.id} className="text-center text-[10px]">
                   <td className=" shadow p-2">{transaction.id}</td>
                   <td className="shadow p-2">{transaction.transaction_type}</td>
                   <td className="shadow p-2">{transaction.asset}</td>
@@ -210,10 +219,66 @@ export default function Transactions() {
               ))}
             </tbody>
           </table>
+          <>
+          <nav className="mt-4 flex justify-center" >
+        <ul className="flex flex-row text-[10px] space-x-2">
+          <li >
+          <button
+                  onClick={prevPage}
+                  className="px-3 py-1 border text-[10px] rounded-md hover:bg-gray-200"
+                  disabled={currentPage === 1}
+                >
+                  Prev
+                </button>
+
+          </li>
+          {
+            numbers.map((n) =>(
+              <li key={n}>
+              <button
+              onClick={() => changeCPage(n)}
+              className={`px-3 py-1 border text-[10px] rounded-md hover:bg-gray-200 ${
+                currentPage === n ? "bg-gray-500 text-white" : ""
+              }`}
+            >
+              {n}
+            </button>
+          </li>
+            ))
+          }
+           <li> <button
+                  onClick={nextPage}
+                  className="px-3 py-1 text-[10px] border rounded-md hover:bg-gray-200"
+                  disabled={currentPage === npage}
+                >
+                  Next
+                </button>
+
+          </li>
+        </ul>
+      </nav>
+      </>
+   
         </div>
       ) : (
         <p className="mt-4">No transactions found</p>
       )}
     </div>
   );
+  function prevPage() {
+    if(currentPage !== 1) {
+      setCurrentPage(currentPage - 1)
+    }
+    
+  }
+  function changeCPage(id) {
+    setCurrentPage(id)
+
+  }
+  function nextPage() {
+    if(currentPage !== npage) {
+      setCurrentPage(currentPage + 1)
+    }
+
+  }
 }
